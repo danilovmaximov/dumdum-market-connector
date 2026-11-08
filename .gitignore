@@ -8,3 +8,4 @@ build
 .idea/queries/
 .idea/dataSources/
 .idea/dataSources.local.xml
+.idea/AndroidProjectSystem.xml

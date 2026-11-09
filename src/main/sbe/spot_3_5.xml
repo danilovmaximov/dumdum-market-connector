@@ -1,7 +1,4 @@
-<sbe:messageSchema xmlns:mbx="https://developers.binance.com/docs/binance-spot-api-docs"
-                   xmlns:sbe="http://fixprotocol.io/2016/sbe" xmlns:xi="http://www.w3.org/2001/XInclude"
-                   package="spot_sbe" id="3" version="5" semanticVersion="5.2" description="Spot API SBE message schema"
-                   byteOrder="littleEndian">
+<sbe:messageSchema xmlns:mbx="https://developers.binance.com/docs/binance-spot-api-docs" xmlns:sbe="http://fixprotocol.io/2016/sbe" xmlns:xi="http://www.w3.org/2001/XInclude" package="spot_sbe" id="3" version="5" semanticVersion="5.2" description="Spot API SBE message schema" byteOrder="littleEndian">
     <types>
         <composite name="messageHeader" description="Template ID and length of message root">
             <type name="blockLength" primitiveType="uint16"/>
@@ -25,13 +22,11 @@
             <type name="length" primitiveType="uint8"/>
             <type name="varData" length="0" primitiveType="uint8" characterEncoding="UTF-8"/>
         </composite>
-        <composite name="optionalVarString"
-                   description="Variable length UTF-8 string where an empty string means null.">
+        <composite name="optionalVarString" description="Variable length UTF-8 string where an empty string means null.">
             <type name="length" primitiveType="uint16"/>
             <type name="varData" length="0" primitiveType="uint8" characterEncoding="UTF-8"/>
         </composite>
-        <composite name="optionalVarString8"
-                   description="Variable length UTF-8 string where an empty string means null.">
+        <composite name="optionalVarString8" description="Variable length UTF-8 string where an empty string means null.">
             <type name="length" primitiveType="uint8"/>
             <type name="varData" length="0" primitiveType="uint8" characterEncoding="UTF-8"/>
         </composite>
@@ -47,20 +42,16 @@
             <type name="length" primitiveType="uint8"/>
             <type name="varData" length="0" primitiveType="uint8"/>
         </composite>
-        <composite name="optionalMessageData"
-                   description="Message header plus SBE-encoded message where 0-length means null.">
+        <composite name="optionalMessageData" description="Message header plus SBE-encoded message where 0-length means null.">
             <type name="length" primitiveType="uint32" maxValue="2147483647"/>
             <type name="varData" length="0" primitiveType="uint8"/>
         </composite>
-        <composite name="optionalMessageData16"
-                   description="Message header plus SBE-encoded message where 0-length means null.">
+        <composite name="optionalMessageData16" description="Message header plus SBE-encoded message where 0-length means null.">
             <type name="length" primitiveType="uint16"/>
             <type name="varData" length="0" primitiveType="uint8"/>
         </composite>
-        <type name="mantissa64" primitiveType="int64"
-              description=" 64-bit mantissa for a decimal floating point number. The name of the field containing the exponent value is specified in the mbx:exponent attribute of the mantissa64 field. The exponent field will always precede the mantissa field."/>
-        <type name="mantissa128" length="16" primitiveType="uint8"
-              description=" Signed 128-bit mantissa for a decimal floating point number represented as a little-endian byte array. The name of the field containing the exponent value is specified in the mbx:exponent attribute of the mantissa128 field. The exponent field will always precede the mantissa field. Following the convention set by the FIX SBE Standard, the value −2^127 is nullValue by default."/>
+        <type name="mantissa64" primitiveType="int64" description=" 64-bit mantissa for a decimal floating point number. The name of the field containing the exponent value is specified in the mbx:exponent attribute of the mantissa64 field. The exponent field will always precede the mantissa field."/>
+        <type name="mantissa128" length="16" primitiveType="uint8" description=" Signed 128-bit mantissa for a decimal floating point number represented as a little-endian byte array. The name of the field containing the exponent value is specified in the mbx:exponent attribute of the mantissa128 field. The exponent field will always precede the mantissa field. Following the convention set by the FIX SBE Standard, the value −2^127 is nullValue by default."/>
         <type name="exponent8" primitiveType="int8" description=" Exponent for a decimal floating point number."/>
         <type name="aggTradeId" primitiveType="int64"/>
         <type name="allocId" primitiveType="int64"/>
@@ -172,8 +163,7 @@
             <validValue name="MarketLotSize" mbx:jsonValue="MARKET_LOT_SIZE">10</validValue>
             <validValue name="PercentPrice" mbx:jsonValue="PERCENT_PRICE">11</validValue>
             <validValue name="MaxNumIcebergOrders" mbx:jsonValue="MAX_NUM_ICEBERG_ORDERS">12</validValue>
-            <validValue name="ExchangeMaxNumIcebergOrders" mbx:jsonValue="EXCHANGE_MAX_NUM_ICEBERG_ORDERS">13
-            </validValue>
+            <validValue name="ExchangeMaxNumIcebergOrders" mbx:jsonValue="EXCHANGE_MAX_NUM_ICEBERG_ORDERS">13</validValue>
             <validValue name="TrailingDelta" mbx:jsonValue="TRAILING_DELTA">14</validValue>
             <validValue name="PercentPriceBySide" mbx:jsonValue="PERCENT_PRICE_BY_SIDE">15</validValue>
             <validValue name="Notional" mbx:jsonValue="NOTIONAL">16</validValue>
@@ -195,8 +185,7 @@
             <validValue name="UnfilledIocQuantityExpired" mbx:jsonValue="UNFILLED_IOC_QUANTITY_EXPIRED">5</validValue>
             <validValue name="UnfilledFokOrderExpired" mbx:jsonValue="UNFILLED_FOK_ORDER_EXPIRED">6</validValue>
             <validValue name="InsufficientLiquidity" mbx:jsonValue="INSUFFICIENT_LIQUIDITY">7</validValue>
-            <validValue name="ExecutionRulePriceRangeExceeded" mbx:jsonValue="EXECUTION_RULE_PRICE_RANGE_EXCEEDED">8
-            </validValue>
+            <validValue name="ExecutionRulePriceRangeExceeded" mbx:jsonValue="EXECUTION_RULE_PRICE_RANGE_EXCEEDED">8</validValue>
             <validValue name="NonRepresentable" mbx:jsonValue="NON_REPRESENTABLE">254</validValue>
         </enum>
         <enum name="calculationType" encodingType="uint8" sinceVersion="3">
@@ -389,8 +378,7 @@
         <field id="2" name="maxNumAlgoOrders" type="int64"/>
     </sbe:message>
     <sbe:message name="MaxNumIcebergOrdersFilter" id="11">
-        <field id="1" name="filterType" type="filterType" presence="constant"
-               valueRef="filterType.MaxNumIcebergOrders"/>
+        <field id="1" name="filterType" type="filterType" presence="constant" valueRef="filterType.MaxNumIcebergOrders"/>
         <field id="2" name="maxNumIcebergOrders" type="int64"/>
     </sbe:message>
     <sbe:message name="MaxPositionFilter" id="12">
@@ -418,23 +406,19 @@
         <field id="2" name="maxNumOrderAmends" type="int64"/>
     </sbe:message>
     <sbe:message name="ExchangeMaxNumOrdersFilter" id="15">
-        <field id="1" name="filterType" type="filterType" presence="constant"
-               valueRef="filterType.ExchangeMaxNumOrders"/>
+        <field id="1" name="filterType" type="filterType" presence="constant" valueRef="filterType.ExchangeMaxNumOrders"/>
         <field id="2" name="maxNumOrders" type="int64"/>
     </sbe:message>
     <sbe:message name="ExchangeMaxNumAlgoOrdersFilter" id="16">
-        <field id="1" name="filterType" type="filterType" presence="constant"
-               valueRef="filterType.ExchangeMaxNumAlgoOrders"/>
+        <field id="1" name="filterType" type="filterType" presence="constant" valueRef="filterType.ExchangeMaxNumAlgoOrders"/>
         <field id="2" name="maxNumAlgoOrders" type="int64"/>
     </sbe:message>
     <sbe:message name="ExchangeMaxNumIcebergOrdersFilter" id="17">
-        <field id="1" name="filterType" type="filterType" presence="constant"
-               valueRef="filterType.ExchangeMaxNumIcebergOrders"/>
+        <field id="1" name="filterType" type="filterType" presence="constant" valueRef="filterType.ExchangeMaxNumIcebergOrders"/>
         <field id="2" name="maxNumIcebergOrders" type="int64"/>
     </sbe:message>
     <sbe:message name="ExchangeMaxNumOrderListsFilter" id="19">
-        <field id="1" name="filterType" type="filterType" presence="constant"
-               valueRef="filterType.ExchangeMaxNumOrderLists"/>
+        <field id="1" name="filterType" type="filterType" presence="constant" valueRef="filterType.ExchangeMaxNumOrderLists"/>
         <field id="2" name="maxNumOrderLists" type="int64"/>
     </sbe:message>
     <sbe:message name="MaxAssetFilter" id="21">
@@ -444,8 +428,7 @@
         <data id="200" name="asset" type="varString8"/>
     </sbe:message>
     <sbe:message name="PriceRangeExecutionRule" id="22" sinceVersion="3">
-        <field id="1" name="ruleType" type="executionRuleType" presence="constant"
-               valueRef="executionRuleType.PriceRange"/>
+        <field id="1" name="ruleType" type="executionRuleType" presence="constant" valueRef="executionRuleType.PriceRange"/>
         <field id="2" name="multiplierExponent" type="exponent8"/>
         <field id="3" name="bidLimitMultUp" type="mantissa64" presence="optional" mbx:exponent="multiplierExponent"/>
         <field id="4" name="bidLimitMultDown" type="mantissa64" presence="optional" mbx:exponent="multiplierExponent"/>
@@ -519,7 +502,7 @@
     <!--  Response for
             - REST GET /api/v3/ping
             - WebSocket "method":"ping"  -->
-    <sbe:message name="PingResponse" id="101"></sbe:message>
+    <sbe:message name="PingResponse" id="101"> </sbe:message>
     <!--  Response for
             - REST GET /api/v3/time
             - WebSocket "method":"time"  -->
@@ -736,8 +719,7 @@
             <field id="8" name="quoteVolume" type="mantissa128" mbx:exponent="priceExponent" mbx:jsonPath="[]"/>
             <field id="9" name="numTrades" type="int64" mbx:jsonPath="[]"/>
             <field id="10" name="takerBuyBaseVolume" type="mantissa128" mbx:exponent="qtyExponent" mbx:jsonPath="[]"/>
-            <field id="11" name="takerBuyQuoteVolume" type="mantissa128" mbx:exponent="priceExponent"
-                   mbx:jsonPath="[]"/>
+            <field id="11" name="takerBuyQuoteVolume" type="mantissa128" mbx:exponent="priceExponent" mbx:jsonPath="[]"/>
         </group>
     </sbe:message>
     <!--  Response for
@@ -746,8 +728,7 @@
     <sbe:message name="AveragePriceResponse" id="204">
         <field id="1" name="mins" type="int64"/>
         <field id="2" name="priceExponent" type="exponent8"/>
-        <field id="3" name="price" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
+        <field id="3" name="price" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
         <field id="4" name="closeTime" type="utcTimestampUs" presence="optional" mbx:jsonDefaultValue="-1"/>
     </sbe:message>
     <!--  Response for
@@ -756,28 +737,19 @@
     <sbe:message name="Ticker24hSymbolFullResponse" id="205">
         <field id="1" name="priceExponent" type="exponent8"/>
         <field id="2" name="qtyExponent" type="exponent8"/>
-        <field id="3" name="priceChange" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
+        <field id="3" name="priceChange" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
         <field id="4" name="priceChangePercent" type="float" presence="optional" mbx:jsonDefaultValue="0.0"/>
-        <field id="5" name="weightedAvgPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
-        <field id="6" name="prevClosePrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
-        <field id="7" name="lastPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
+        <field id="5" name="weightedAvgPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+        <field id="6" name="prevClosePrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+        <field id="7" name="lastPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
         <field id="8" name="lastQty" type="mantissa128" mbx:exponent="qtyExponent"/>
-        <field id="9" name="bidPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
+        <field id="9" name="bidPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
         <field id="10" name="bidQty" type="mantissa64" mbx:exponent="qtyExponent"/>
-        <field id="11" name="askPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
+        <field id="11" name="askPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
         <field id="12" name="askQty" type="mantissa64" mbx:exponent="qtyExponent"/>
-        <field id="13" name="openPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
-        <field id="14" name="highPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
-        <field id="15" name="lowPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
+        <field id="13" name="openPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+        <field id="14" name="highPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+        <field id="15" name="lowPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
         <field id="16" name="volume" type="mantissa128" mbx:exponent="qtyExponent"/>
         <field id="17" name="quoteVolume" type="mantissa128" mbx:exponent="priceExponent"/>
         <field id="18" name="openTime" type="utcTimestampUs"/>
@@ -794,28 +766,19 @@
         <group id="100" name="tickers" mbx:jsonPath="..">
             <field id="1" name="priceExponent" type="exponent8"/>
             <field id="2" name="qtyExponent" type="exponent8"/>
-            <field id="3" name="priceChange" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
+            <field id="3" name="priceChange" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
             <field id="4" name="priceChangePercent" type="float" presence="optional" mbx:jsonDefaultValue="0.0"/>
-            <field id="5" name="weightedAvgPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
-            <field id="6" name="prevClosePrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
-            <field id="7" name="lastPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
+            <field id="5" name="weightedAvgPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+            <field id="6" name="prevClosePrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+            <field id="7" name="lastPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
             <field id="8" name="lastQty" type="mantissa128" mbx:exponent="qtyExponent"/>
-            <field id="9" name="bidPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
+            <field id="9" name="bidPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
             <field id="10" name="bidQty" type="mantissa64" mbx:exponent="qtyExponent"/>
-            <field id="11" name="askPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
+            <field id="11" name="askPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
             <field id="12" name="askQty" type="mantissa64" mbx:exponent="qtyExponent"/>
-            <field id="13" name="openPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
-            <field id="14" name="highPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
-            <field id="15" name="lowPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
+            <field id="13" name="openPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+            <field id="14" name="highPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+            <field id="15" name="lowPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
             <field id="16" name="volume" type="mantissa128" mbx:exponent="qtyExponent"/>
             <field id="17" name="quoteVolume" type="mantissa128" mbx:exponent="priceExponent"/>
             <field id="18" name="openTime" type="utcTimestampUs"/>
@@ -832,14 +795,10 @@
     <sbe:message name="Ticker24hSymbolMiniResponse" id="207">
         <field id="1" name="priceExponent" type="exponent8"/>
         <field id="2" name="qtyExponent" type="exponent8"/>
-        <field id="3" name="openPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
-        <field id="4" name="highPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
-        <field id="5" name="lowPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
-        <field id="6" name="lastPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
+        <field id="3" name="openPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+        <field id="4" name="highPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+        <field id="5" name="lowPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+        <field id="6" name="lastPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
         <field id="7" name="volume" type="mantissa128" mbx:exponent="qtyExponent"/>
         <field id="8" name="quoteVolume" type="mantissa128" mbx:exponent="priceExponent"/>
         <field id="9" name="openTime" type="utcTimestampUs"/>
@@ -856,14 +815,10 @@
         <group id="100" name="tickers" mbx:jsonPath="..">
             <field id="1" name="priceExponent" type="exponent8"/>
             <field id="2" name="qtyExponent" type="exponent8"/>
-            <field id="3" name="openPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
-            <field id="4" name="highPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
-            <field id="5" name="lowPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
-            <field id="6" name="lastPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
+            <field id="3" name="openPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+            <field id="4" name="highPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+            <field id="5" name="lowPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+            <field id="6" name="lastPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
             <field id="7" name="volume" type="mantissa128" mbx:exponent="qtyExponent"/>
             <field id="8" name="quoteVolume" type="mantissa128" mbx:exponent="priceExponent"/>
             <field id="9" name="openTime" type="utcTimestampUs"/>
@@ -879,8 +834,7 @@
             - WebSocket "method":"ticker.price","params":{"symbol":"<SYMBOL>"}  -->
     <sbe:message name="PriceTickerSymbolResponse" id="209">
         <field id="1" name="priceExponent" type="exponent8"/>
-        <field id="2" name="price" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
+        <field id="2" name="price" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
         <data id="200" name="symbol" type="varString8"/>
     </sbe:message>
     <!--  Response for
@@ -889,8 +843,7 @@
     <sbe:message name="PriceTickerResponse" id="210">
         <group id="100" name="tickers" mbx:jsonPath="..">
             <field id="1" name="priceExponent" type="exponent8"/>
-            <field id="2" name="price" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
+            <field id="2" name="price" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
             <data id="200" name="symbol" type="varString8"/>
         </group>
     </sbe:message>
@@ -900,11 +853,9 @@
     <sbe:message name="BookTickerSymbolResponse" id="211">
         <field id="1" name="priceExponent" type="exponent8"/>
         <field id="2" name="qtyExponent" type="exponent8"/>
-        <field id="3" name="bidPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
+        <field id="3" name="bidPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
         <field id="4" name="bidQty" type="mantissa64" mbx:exponent="qtyExponent"/>
-        <field id="5" name="askPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
+        <field id="5" name="askPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
         <field id="6" name="askQty" type="mantissa64" mbx:exponent="qtyExponent"/>
         <data id="200" name="symbol" type="varString8"/>
     </sbe:message>
@@ -915,11 +866,9 @@
         <group id="100" name="tickers" mbx:jsonPath="..">
             <field id="1" name="priceExponent" type="exponent8"/>
             <field id="2" name="qtyExponent" type="exponent8"/>
-            <field id="3" name="bidPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
+            <field id="3" name="bidPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
             <field id="4" name="bidQty" type="mantissa64" mbx:exponent="qtyExponent"/>
-            <field id="5" name="askPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
+            <field id="5" name="askPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
             <field id="6" name="askQty" type="mantissa64" mbx:exponent="qtyExponent"/>
             <data id="200" name="symbol" type="varString8"/>
         </group>
@@ -932,19 +881,13 @@
     <sbe:message name="TickerSymbolFullResponse" id="213">
         <field id="1" name="priceExponent" type="exponent8"/>
         <field id="2" name="qtyExponent" type="exponent8"/>
-        <field id="3" name="priceChange" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
+        <field id="3" name="priceChange" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
         <field id="4" name="priceChangePercent" type="float" presence="optional" mbx:jsonDefaultValue="0.0"/>
-        <field id="5" name="weightedAvgPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
-        <field id="6" name="openPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
-        <field id="7" name="highPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
-        <field id="8" name="lowPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
-        <field id="9" name="lastPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
+        <field id="5" name="weightedAvgPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+        <field id="6" name="openPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+        <field id="7" name="highPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+        <field id="8" name="lowPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+        <field id="9" name="lastPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
         <field id="10" name="volume" type="mantissa128" mbx:exponent="qtyExponent"/>
         <field id="11" name="quoteVolume" type="mantissa128" mbx:exponent="priceExponent"/>
         <field id="12" name="openTime" type="utcTimestampUs"/>
@@ -963,19 +906,13 @@
         <group id="100" name="tickers" mbx:jsonPath="..">
             <field id="1" name="priceExponent" type="exponent8"/>
             <field id="2" name="qtyExponent" type="exponent8"/>
-            <field id="3" name="priceChange" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
+            <field id="3" name="priceChange" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
             <field id="4" name="priceChangePercent" type="float" presence="optional" mbx:jsonDefaultValue="0.0"/>
-            <field id="5" name="weightedAvgPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
-            <field id="6" name="openPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
-            <field id="7" name="highPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
-            <field id="8" name="lowPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
-            <field id="9" name="lastPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
+            <field id="5" name="weightedAvgPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+            <field id="6" name="openPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+            <field id="7" name="highPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+            <field id="8" name="lowPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+            <field id="9" name="lastPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
             <field id="10" name="volume" type="mantissa128" mbx:exponent="qtyExponent"/>
             <field id="11" name="quoteVolume" type="mantissa128" mbx:exponent="priceExponent"/>
             <field id="12" name="openTime" type="utcTimestampUs"/>
@@ -994,14 +931,10 @@
     <sbe:message name="TickerSymbolMiniResponse" id="215">
         <field id="1" name="priceExponent" type="exponent8"/>
         <field id="2" name="qtyExponent" type="exponent8"/>
-        <field id="3" name="openPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
-        <field id="4" name="highPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
-        <field id="5" name="lowPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
-        <field id="6" name="lastPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-               mbx:jsonDefaultValue="0"/>
+        <field id="3" name="openPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+        <field id="4" name="highPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+        <field id="5" name="lowPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+        <field id="6" name="lastPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
         <field id="7" name="volume" type="mantissa128" mbx:exponent="qtyExponent"/>
         <field id="8" name="quoteVolume" type="mantissa128" mbx:exponent="priceExponent"/>
         <field id="9" name="openTime" type="utcTimestampUs"/>
@@ -1020,14 +953,10 @@
         <group id="100" name="tickers" mbx:jsonPath="..">
             <field id="1" name="priceExponent" type="exponent8"/>
             <field id="2" name="qtyExponent" type="exponent8"/>
-            <field id="3" name="openPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
-            <field id="4" name="highPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
-            <field id="5" name="lowPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
-            <field id="6" name="lastPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional"
-                   mbx:jsonDefaultValue="0"/>
+            <field id="3" name="openPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+            <field id="4" name="highPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+            <field id="5" name="lowPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
+            <field id="6" name="lastPrice" type="mantissa64" mbx:exponent="priceExponent" presence="optional" mbx:jsonDefaultValue="0"/>
             <field id="7" name="volume" type="mantissa128" mbx:exponent="qtyExponent"/>
             <field id="8" name="quoteVolume" type="mantissa128" mbx:exponent="priceExponent"/>
             <field id="9" name="openTime" type="utcTimestampUs"/>
@@ -1121,8 +1050,7 @@
         <field id="28" name="pegPriceType" type="pegPriceType" presence="optional" sinceVersion="1"/>
         <field id="29" name="pegOffsetType" type="pegOffsetType" presence="optional" sinceVersion="1"/>
         <field id="30" name="pegOffsetValue" type="uint8" presence="optional" sinceVersion="1"/>
-        <field id="31" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1"
-               mbx:exponent="priceExponent"/>
+        <field id="31" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1" mbx:exponent="priceExponent"/>
         <field id="32" name="expiryReason" type="expiryReason" presence="optional" sinceVersion="3"/>
         <data id="200" name="symbol" type="varString8"/>
         <data id="201" name="clientOrderId" type="varString8"/>
@@ -1163,8 +1091,7 @@
         <field id="28" name="pegPriceType" type="pegPriceType" presence="optional" sinceVersion="1"/>
         <field id="29" name="pegOffsetType" type="pegOffsetType" presence="optional" sinceVersion="1"/>
         <field id="30" name="pegOffsetValue" type="uint8" presence="optional" sinceVersion="1"/>
-        <field id="31" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1"
-               mbx:exponent="priceExponent"/>
+        <field id="31" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1" mbx:exponent="priceExponent"/>
         <field id="32" name="expiryReason" type="expiryReason" presence="optional" sinceVersion="3"/>
         <group id="100" name="fills">
             <field id="1" name="commissionExponent" type="exponent8"/>
@@ -1180,10 +1107,8 @@
             <field id="1" name="preventedMatchId" type="int64"/>
             <field id="2" name="makerOrderId" type="orderId" presence="optional"/>
             <field id="3" name="price" type="mantissa64" mbx:exponent="priceExponent" presence="optional"/>
-            <field id="4" name="takerPreventedQuantity" type="mantissa64" mbx:exponent="qtyExponent"
-                   presence="optional"/>
-            <field id="5" name="makerPreventedQuantity" type="mantissa64" mbx:exponent="qtyExponent"
-                   presence="optional"/>
+            <field id="4" name="takerPreventedQuantity" type="mantissa64" mbx:exponent="qtyExponent" presence="optional"/>
+            <field id="5" name="makerPreventedQuantity" type="mantissa64" mbx:exponent="qtyExponent" presence="optional"/>
             <data id="200" name="makerSymbol" type="optionalVarString8"/>
         </group>
         <data id="200" name="symbol" type="varString8"/>
@@ -1194,7 +1119,7 @@
             - REST POST /api/v3/sor/order/test
             - WebSocket "method":"order.test"
             - WebSocket "method":"sor.order.test"  -->
-    <sbe:message name="OrderTestResponse" id="303"></sbe:message>
+    <sbe:message name="OrderTestResponse" id="303"> </sbe:message>
     <!--  Response for
             - REST GET /api/v3/order
             - WebSocket "method":"order.status"  -->
@@ -1231,8 +1156,7 @@
         <field id="30" name="pegPriceType" type="pegPriceType" presence="optional" sinceVersion="1"/>
         <field id="31" name="pegOffsetType" type="pegOffsetType" presence="optional" sinceVersion="1"/>
         <field id="32" name="pegOffsetValue" type="uint8" presence="optional" sinceVersion="1"/>
-        <field id="33" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1"
-               mbx:exponent="priceExponent"/>
+        <field id="33" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1" mbx:exponent="priceExponent"/>
         <field id="34" name="expiryReason" type="expiryReason" presence="optional" sinceVersion="4"/>
         <data id="200" name="symbol" type="varString8"/>
         <data id="201" name="clientOrderId" type="varString8"/>
@@ -1269,8 +1193,7 @@
         <field id="26" name="pegPriceType" type="pegPriceType" presence="optional" sinceVersion="1"/>
         <field id="27" name="pegOffsetType" type="pegOffsetType" presence="optional" sinceVersion="1"/>
         <field id="28" name="pegOffsetValue" type="uint8" presence="optional" sinceVersion="1"/>
-        <field id="29" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1"
-               mbx:exponent="priceExponent"/>
+        <field id="29" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1" mbx:exponent="priceExponent"/>
         <data id="200" name="symbol" type="varString8"/>
         <data id="201" name="origClientOrderId" type="varString8"/>
         <data id="202" name="clientOrderId" type="varString8"/>
@@ -1346,8 +1269,7 @@
             <field id="30" name="pegPriceType" type="pegPriceType" presence="optional" sinceVersion="1"/>
             <field id="31" name="pegOffsetType" type="pegOffsetType" presence="optional" sinceVersion="1"/>
             <field id="32" name="pegOffsetValue" type="uint8" presence="optional" sinceVersion="1"/>
-            <field id="33" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1"
-                   mbx:exponent="priceExponent"/>
+            <field id="33" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1" mbx:exponent="priceExponent"/>
             <field id="34" name="expiryReason" type="expiryReason" presence="optional" sinceVersion="4"/>
             <data id="200" name="symbol" type="varString8"/>
             <data id="201" name="clientOrderId" type="varString8"/>
@@ -1430,8 +1352,7 @@
             <field id="26" name="pegPriceType" type="pegPriceType" presence="optional" sinceVersion="1"/>
             <field id="27" name="pegOffsetType" type="pegOffsetType" presence="optional" sinceVersion="1"/>
             <field id="28" name="pegOffsetValue" type="uint8" presence="optional" sinceVersion="1"/>
-            <field id="29" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1"
-                   mbx:exponent="priceExponent"/>
+            <field id="29" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1" mbx:exponent="priceExponent"/>
             <field id="30" name="expiryReason" type="expiryReason" presence="optional" sinceVersion="3"/>
             <data id="200" name="symbol" type="varString8"/>
             <data id="201" name="clientOrderId" type="varString8"/>
@@ -1488,8 +1409,7 @@
             <field id="26" name="pegPriceType" type="pegPriceType" presence="optional" sinceVersion="1"/>
             <field id="27" name="pegOffsetType" type="pegOffsetType" presence="optional" sinceVersion="1"/>
             <field id="28" name="pegOffsetValue" type="uint8" presence="optional" sinceVersion="1"/>
-            <field id="29" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1"
-                   mbx:exponent="priceExponent"/>
+            <field id="29" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1" mbx:exponent="priceExponent"/>
             <field id="30" name="expiryReason" type="expiryReason" presence="optional" sinceVersion="3"/>
             <group id="100" name="fills">
                 <field id="1" name="commissionExponent" type="exponent8"/>
@@ -1505,10 +1425,8 @@
                 <field id="1" name="preventedMatchId" type="int64"/>
                 <field id="2" name="makerOrderId" type="orderId" presence="optional"/>
                 <field id="3" name="price" type="mantissa64" mbx:exponent="priceExponent" presence="optional"/>
-                <field id="4" name="takerPreventedQuantity" type="mantissa64" mbx:exponent="qtyExponent"
-                       presence="optional"/>
-                <field id="5" name="makerPreventedQuantity" type="mantissa64" mbx:exponent="qtyExponent"
-                       presence="optional"/>
+                <field id="4" name="takerPreventedQuantity" type="mantissa64" mbx:exponent="qtyExponent" presence="optional"/>
+                <field id="5" name="makerPreventedQuantity" type="mantissa64" mbx:exponent="qtyExponent" presence="optional"/>
                 <data id="200" name="makerSymbol" type="optionalVarString8"/>
             </group>
             <data id="200" name="symbol" type="varString8"/>
@@ -1562,8 +1480,7 @@
             <field id="24" name="pegPriceType" type="pegPriceType" presence="optional" sinceVersion="1"/>
             <field id="25" name="pegOffsetType" type="pegOffsetType" presence="optional" sinceVersion="1"/>
             <field id="26" name="pegOffsetValue" type="uint8" presence="optional" sinceVersion="1"/>
-            <field id="27" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1"
-                   mbx:exponent="priceExponent"/>
+            <field id="27" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1" mbx:exponent="priceExponent"/>
             <data id="200" name="symbol" type="varString8"/>
             <data id="201" name="origClientOrderId" type="varString8"/>
             <data id="202" name="clientOrderId" type="varString8"/>
@@ -1615,22 +1532,15 @@
     <sbe:message name="OrderTestWithCommissionsResponse" id="315">
         <field id="1" name="commissionExponent" type="exponent8"/>
         <field id="2" name="discountExponent" type="exponent8"/>
-        <field id="3" name="standardCommissionForOrderMaker" type="mantissa64" mbx:exponent="commissionExponent"
-               mbx:jsonPath="standardCommissionForOrder.maker"/>
-        <field id="4" name="standardCommissionForOrderTaker" type="mantissa64" mbx:exponent="commissionExponent"
-               mbx:jsonPath="standardCommissionForOrder.taker"/>
-        <field id="5" name="taxCommissionForOrderMaker" type="mantissa64" mbx:exponent="commissionExponent"
-               mbx:jsonPath="taxCommissionForOrder.maker"/>
-        <field id="6" name="taxCommissionForOrderTaker" type="mantissa64" mbx:exponent="commissionExponent"
-               mbx:jsonPath="taxCommissionForOrder.taker"/>
+        <field id="3" name="standardCommissionForOrderMaker" type="mantissa64" mbx:exponent="commissionExponent" mbx:jsonPath="standardCommissionForOrder.maker"/>
+        <field id="4" name="standardCommissionForOrderTaker" type="mantissa64" mbx:exponent="commissionExponent" mbx:jsonPath="standardCommissionForOrder.taker"/>
+        <field id="5" name="taxCommissionForOrderMaker" type="mantissa64" mbx:exponent="commissionExponent" mbx:jsonPath="taxCommissionForOrder.maker"/>
+        <field id="6" name="taxCommissionForOrderTaker" type="mantissa64" mbx:exponent="commissionExponent" mbx:jsonPath="taxCommissionForOrder.taker"/>
         <field id="7" name="discountEnabledForAccount" type="boolEnum" mbx:jsonPath="discount.enabledForAccount"/>
         <field id="8" name="discountEnabledForSymbol" type="boolEnum" mbx:jsonPath="discount.enabledForSymbol"/>
-        <field id="9" name="discount" type="mantissa64" mbx:exponent="discountExponent"
-               mbx:jsonPath="discount.discount"/>
-        <field id="10" name="specialCommissionForOrderMaker" type="mantissa64" presence="optional"
-               mbx:exponent="commissionExponent" mbx:jsonPath="specialCommissionForOrder.maker" sinceVersion="1"/>
-        <field id="11" name="specialCommissionForOrderTaker" type="mantissa64" presence="optional"
-               mbx:exponent="commissionExponent" mbx:jsonPath="specialCommissionForOrder.taker" sinceVersion="1"/>
+        <field id="9" name="discount" type="mantissa64" mbx:exponent="discountExponent" mbx:jsonPath="discount.discount"/>
+        <field id="10" name="specialCommissionForOrderMaker" type="mantissa64" presence="optional" mbx:exponent="commissionExponent" mbx:jsonPath="specialCommissionForOrder.maker" sinceVersion="1"/>
+        <field id="11" name="specialCommissionForOrderTaker" type="mantissa64" presence="optional" mbx:exponent="commissionExponent" mbx:jsonPath="specialCommissionForOrder.taker" sinceVersion="1"/>
         <data id="200" name="discountAsset" type="optionalVarString8" mbx:jsonPath="discount.discountAsset"/>
     </sbe:message>
     <!--  Response for
@@ -1682,8 +1592,7 @@
         <field id="27" name="pegPriceType" type="pegPriceType" presence="optional" sinceVersion="1"/>
         <field id="28" name="pegOffsetType" type="pegOffsetType" presence="optional" sinceVersion="1"/>
         <field id="29" name="pegOffsetValue" type="uint8" presence="optional" sinceVersion="1"/>
-        <field id="30" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1"
-               mbx:exponent="priceExponent"/>
+        <field id="30" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1" mbx:exponent="priceExponent"/>
         <group id="101" name="listStatus" dimensionType="groupSize16Encoding">
             <field id="1" name="orderListId" type="orderListId"/>
             <field id="2" name="contingencyType" type="contingencyType"/>
@@ -1722,8 +1631,7 @@
             <field id="23" name="pegPriceType" type="pegPriceType" presence="optional" sinceVersion="1"/>
             <field id="24" name="pegOffsetType" type="pegOffsetType" presence="optional" sinceVersion="1"/>
             <field id="25" name="pegOffsetValue" type="uint8" presence="optional" sinceVersion="1"/>
-            <field id="26" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1"
-                   mbx:exponent="priceExponent"/>
+            <field id="26" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1" mbx:exponent="priceExponent"/>
             <data id="200" name="symbol" type="varString8"/>
             <data id="201" name="clientOrderId" type="optionalVarString8"/>
         </group>
@@ -1746,14 +1654,10 @@
                     decimal floating-point numbers.
                  -->
         <field id="1" name="commissionExponent" type="exponent8"/>
-        <field id="2" name="commissionRateMaker" type="mantissa64" mbx:exponent="commissionExponent"
-               mbx:jsonPath="commissionRates.maker"/>
-        <field id="3" name="commissionRateTaker" type="mantissa64" mbx:exponent="commissionExponent"
-               mbx:jsonPath="commissionRates.taker"/>
-        <field id="4" name="commissionRateBuyer" type="mantissa64" mbx:exponent="commissionExponent"
-               mbx:jsonPath="commissionRates.buyer"/>
-        <field id="5" name="commissionRateSeller" type="mantissa64" mbx:exponent="commissionExponent"
-               mbx:jsonPath="commissionRates.seller"/>
+        <field id="2" name="commissionRateMaker" type="mantissa64" mbx:exponent="commissionExponent" mbx:jsonPath="commissionRates.maker"/>
+        <field id="3" name="commissionRateTaker" type="mantissa64" mbx:exponent="commissionExponent" mbx:jsonPath="commissionRates.taker"/>
+        <field id="4" name="commissionRateBuyer" type="mantissa64" mbx:exponent="commissionExponent" mbx:jsonPath="commissionRates.buyer"/>
+        <field id="5" name="commissionRateSeller" type="mantissa64" mbx:exponent="commissionExponent" mbx:jsonPath="commissionRates.seller"/>
         <field id="6" name="canTrade" type="boolEnum"/>
         <field id="7" name="canWithdraw" type="boolEnum"/>
         <field id="8" name="canDeposit" type="boolEnum"/>
@@ -1825,10 +1729,8 @@
             <field id="6" name="tradeGroupId" type="tradeGroupId"/>
             <field id="7" name="selfTradePreventionMode" type="selfTradePreventionMode"/>
             <field id="8" name="price" type="mantissa64" mbx:exponent="priceExponent"/>
-            <field id="9" name="takerPreventedQuantity" type="mantissa64" mbx:exponent="qtyExponent"
-                   presence="optional"/>
-            <field id="10" name="makerPreventedQuantity" type="mantissa64" mbx:exponent="qtyExponent"
-                   presence="optional"/>
+            <field id="9" name="takerPreventedQuantity" type="mantissa64" mbx:exponent="qtyExponent" presence="optional"/>
+            <field id="10" name="makerPreventedQuantity" type="mantissa64" mbx:exponent="qtyExponent" presence="optional"/>
             <field id="11" name="transactTime" type="utcTimestampUs"/>
             <data id="200" name="symbol" type="varString8"/>
             <data id="201" name="makerSymbol" type="varString8"/>
@@ -1876,34 +1778,21 @@
     <sbe:message name="AccountCommissionResponse" id="405">
         <field id="1" name="commissionExponent" type="exponent8"/>
         <field id="2" name="discountExponent" type="exponent8"/>
-        <field id="3" name="standardCommissionMaker" type="mantissa64" mbx:exponent="commissionExponent"
-               mbx:jsonPath="standardCommission.maker"/>
-        <field id="4" name="standardCommissionTaker" type="mantissa64" mbx:exponent="commissionExponent"
-               mbx:jsonPath="standardCommission.taker"/>
-        <field id="5" name="standardCommissionBuyer" type="mantissa64" mbx:exponent="commissionExponent"
-               mbx:jsonPath="standardCommission.buyer"/>
-        <field id="6" name="standardCommissionSeller" type="mantissa64" mbx:exponent="commissionExponent"
-               mbx:jsonPath="standardCommission.seller"/>
-        <field id="7" name="taxCommissionMaker" type="mantissa64" mbx:exponent="commissionExponent"
-               mbx:jsonPath="taxCommission.maker"/>
-        <field id="8" name="taxCommissionTaker" type="mantissa64" mbx:exponent="commissionExponent"
-               mbx:jsonPath="taxCommission.taker"/>
-        <field id="9" name="taxCommissionBuyer" type="mantissa64" mbx:exponent="commissionExponent"
-               mbx:jsonPath="taxCommission.buyer"/>
-        <field id="10" name="taxCommissionSeller" type="mantissa64" mbx:exponent="commissionExponent"
-               mbx:jsonPath="taxCommission.seller"/>
+        <field id="3" name="standardCommissionMaker" type="mantissa64" mbx:exponent="commissionExponent" mbx:jsonPath="standardCommission.maker"/>
+        <field id="4" name="standardCommissionTaker" type="mantissa64" mbx:exponent="commissionExponent" mbx:jsonPath="standardCommission.taker"/>
+        <field id="5" name="standardCommissionBuyer" type="mantissa64" mbx:exponent="commissionExponent" mbx:jsonPath="standardCommission.buyer"/>
+        <field id="6" name="standardCommissionSeller" type="mantissa64" mbx:exponent="commissionExponent" mbx:jsonPath="standardCommission.seller"/>
+        <field id="7" name="taxCommissionMaker" type="mantissa64" mbx:exponent="commissionExponent" mbx:jsonPath="taxCommission.maker"/>
+        <field id="8" name="taxCommissionTaker" type="mantissa64" mbx:exponent="commissionExponent" mbx:jsonPath="taxCommission.taker"/>
+        <field id="9" name="taxCommissionBuyer" type="mantissa64" mbx:exponent="commissionExponent" mbx:jsonPath="taxCommission.buyer"/>
+        <field id="10" name="taxCommissionSeller" type="mantissa64" mbx:exponent="commissionExponent" mbx:jsonPath="taxCommission.seller"/>
         <field id="11" name="discountEnabledForAccount" type="boolEnum" mbx:jsonPath="discount.enabledForAccount"/>
         <field id="12" name="discountEnabledForSymbol" type="boolEnum" mbx:jsonPath="discount.enabledForSymbol"/>
-        <field id="13" name="discount" type="mantissa64" mbx:exponent="discountExponent"
-               mbx:jsonPath="discount.discount"/>
-        <field id="14" name="specialCommissionMaker" type="mantissa64" presence="optional"
-               mbx:exponent="commissionExponent" mbx:jsonPath="specialCommission.maker" sinceVersion="1"/>
-        <field id="15" name="specialCommissionTaker" type="mantissa64" presence="optional"
-               mbx:exponent="commissionExponent" mbx:jsonPath="specialCommission.taker" sinceVersion="1"/>
-        <field id="16" name="specialCommissionBuyer" type="mantissa64" presence="optional"
-               mbx:exponent="commissionExponent" mbx:jsonPath="specialCommission.buyer" sinceVersion="1"/>
-        <field id="17" name="specialCommissionSeller" type="mantissa64" presence="optional"
-               mbx:exponent="commissionExponent" mbx:jsonPath="specialCommission.seller" sinceVersion="1"/>
+        <field id="13" name="discount" type="mantissa64" mbx:exponent="discountExponent" mbx:jsonPath="discount.discount"/>
+        <field id="14" name="specialCommissionMaker" type="mantissa64" presence="optional" mbx:exponent="commissionExponent" mbx:jsonPath="specialCommission.maker" sinceVersion="1"/>
+        <field id="15" name="specialCommissionTaker" type="mantissa64" presence="optional" mbx:exponent="commissionExponent" mbx:jsonPath="specialCommission.taker" sinceVersion="1"/>
+        <field id="16" name="specialCommissionBuyer" type="mantissa64" presence="optional" mbx:exponent="commissionExponent" mbx:jsonPath="specialCommission.buyer" sinceVersion="1"/>
+        <field id="17" name="specialCommissionSeller" type="mantissa64" presence="optional" mbx:exponent="commissionExponent" mbx:jsonPath="specialCommission.seller" sinceVersion="1"/>
         <data id="200" name="symbol" type="varString8"/>
         <data id="201" name="discountAsset" type="optionalVarString8" mbx:jsonPath="discount.discountAsset"/>
     </sbe:message>
@@ -1917,17 +1806,17 @@
     <!--  Response for
             - REST PUT /api/v3/userDataStream (RETIRED)
             - WebSocket "method":"userDataStream.ping" (RETIRED)  -->
-    <sbe:message name="UserDataStreamPingResponse" id="501"></sbe:message>
+    <sbe:message name="UserDataStreamPingResponse" id="501"> </sbe:message>
     <!--  Response for
             - REST DELETE /api/v3/userDataStream (RETIRED)
             - WebSocket "method":"userDataStream.stop" (RETIRED) -->
-    <sbe:message name="UserDataStreamStopResponse" id="502"></sbe:message>
+    <sbe:message name="UserDataStreamStopResponse" id="502"> </sbe:message>
     <!--  Response for WebSocket "method":"userDataStream.subscribe" and "method":"userDataStream.subscribe.signature"  -->
     <sbe:message name="UserDataStreamSubscribeResponse" id="503">
         <field id="1" name="subscriptionId" type="subscriptionId" presence="optional" sinceVersion="1"/>
     </sbe:message>
     <!--  Response for WebSocket "method":"userDataStream.unsubscribe"  -->
-    <sbe:message name="UserDataStreamUnsubscribeResponse" id="504"></sbe:message>
+    <sbe:message name="UserDataStreamUnsubscribeResponse" id="504"> </sbe:message>
     <!--  Refer to https://developers.binance.com/docs/margin_trading/trade-data-stream/Listen-Token-Websocket-API  -->
     <sbe:message name="UserDataStreamSubscribeListenTokenResponse" id="505" sinceVersion="1">
         <field id="1" name="subscriptionId" type="subscriptionId"/>
@@ -1951,8 +1840,7 @@
         <field id="13" name="allocationReportId" type="allocationReportId" mbx:jsonPath="R"/>
         <field id="14" name="allocationId" type="allocId" mbx:jsonPath="a"/>
         <field id="15" name="sourceOrderId" type="orderId" mbx:jsonPath="i"/>
-        <field id="16" name="sourceOrderListId" type="orderId" presence="optional" mbx:jsonDefaultValue="-1"
-               mbx:jsonPath="g"/>
+        <field id="16" name="sourceOrderListId" type="orderId" presence="optional" mbx:jsonDefaultValue="-1" mbx:jsonPath="g"/>
         <field id="17" name="sourceTradeId" type="tradeId" presence="optional" mbx:jsonPath="t"/>
         <field id="18" name="sourceAllocationId" type="allocId" presence="optional" mbx:jsonPath="Sa"/>
         <field id="19" name="price" type="mantissa64" mbx:exponent="priceExponent" mbx:jsonPath="p"/>
@@ -1985,8 +1873,7 @@
         <field id="3" name="priceExponent" type="exponent8"/>
         <field id="4" name="qtyExponent" type="exponent8"/>
         <field id="5" name="commissionExponent" type="exponent8"/>
-        <field id="6" name="orderCreationTime" type="utcTimestampUs" presence="optional" mbx:jsonDefaultValue="-1"
-               mbx:jsonPath="O"/>
+        <field id="6" name="orderCreationTime" type="utcTimestampUs" presence="optional" mbx:jsonDefaultValue="-1" mbx:jsonPath="O"/>
         <field id="7" name="workingTime" type="utcTimestampUs" presence="optional" mbx:jsonPath="W"/>
         <field id="8" name="orderId" type="orderId" mbx:jsonPath="i"/>
         <field id="9" name="orderListId" type="orderId" presence="optional" mbx:jsonDefaultValue="-1" mbx:jsonPath="g"/>
@@ -2021,25 +1908,19 @@
         <field id="38" name="trailingTime" type="utcTimestampUs" presence="optional" mbx:jsonPath="D"/>
         <field id="39" name="tradeGroupId" type="tradeGroupId" presence="optional" mbx:jsonPath="u"/>
         <field id="40" name="preventedQty" type="mantissa64" mbx:exponent="qtyExponent" mbx:jsonPath="A"/>
-        <field id="41" name="lastPreventedQty" type="mantissa64" presence="optional" mbx:exponent="qtyExponent"
-               mbx:jsonPath="B"/>
+        <field id="41" name="lastPreventedQty" type="mantissa64" presence="optional" mbx:exponent="qtyExponent" mbx:jsonPath="B"/>
         <field id="42" name="preventedMatchId" type="preventedMatchId" presence="optional" mbx:jsonPath="v"/>
-        <field id="43" name="preventedExecutionQty" type="mantissa64" presence="optional" mbx:exponent="qtyExponent"
-               mbx:jsonPath="pl"/>
-        <field id="44" name="preventedExecutionPrice" type="mantissa64" presence="optional" mbx:exponent="priceExponent"
-               mbx:jsonPath="pL"/>
-        <field id="45" name="preventedExecutionQuoteQty" type="mantissa64" presence="optional"
-               mbx:exponent="priceExponent" mbx:jsonPath="pY"/>
+        <field id="43" name="preventedExecutionQty" type="mantissa64" presence="optional" mbx:exponent="qtyExponent" mbx:jsonPath="pl"/>
+        <field id="44" name="preventedExecutionPrice" type="mantissa64" presence="optional" mbx:exponent="priceExponent" mbx:jsonPath="pL"/>
+        <field id="45" name="preventedExecutionQuoteQty" type="mantissa64" presence="optional" mbx:exponent="priceExponent" mbx:jsonPath="pY"/>
         <field id="46" name="strategyType" type="int32" presence="optional" mbx:jsonPath="J"/>
         <field id="47" name="strategyId" type="int64" presence="optional" mbx:jsonPath="j"/>
         <field id="48" name="counterOrderId" type="orderId" presence="optional" mbx:jsonPath="U"/>
         <field id="49" name="subscriptionId" type="subscriptionId" presence="optional" sinceVersion="1"/>
         <field id="50" name="pegPriceType" type="pegPriceType" presence="optional" sinceVersion="1" mbx:jsonPath="gP"/>
-        <field id="51" name="pegOffsetType" type="pegOffsetType" presence="optional" sinceVersion="1"
-               mbx:jsonPath="gOT"/>
+        <field id="51" name="pegOffsetType" type="pegOffsetType" presence="optional" sinceVersion="1" mbx:jsonPath="gOT"/>
         <field id="52" name="pegOffsetValue" type="uint8" presence="optional" sinceVersion="1" mbx:jsonPath="gOV"/>
-        <field id="53" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1"
-               mbx:exponent="priceExponent" mbx:jsonPath="gp"/>
+        <field id="53" name="peggedPrice" type="mantissa64" presence="optional" sinceVersion="1" mbx:exponent="priceExponent" mbx:jsonPath="gp"/>
         <field id="54" name="expiryReason" type="expiryReason" presence="optional" sinceVersion="3" mbx:jsonPath="eR"/>
         <data id="200" name="symbol" type="varString8" mbx:jsonPath="s"/>
         <data id="201" name="clientOrderId" type="varString8" mbx:jsonPath="c"/>
@@ -2095,5 +1976,5 @@
             Receipt of this message indicates that additional data is available
             when using the latest schema.
          -->
-    <sbe:message name="NonRepresentableMessage" id="999"></sbe:message>
+    <sbe:message name="NonRepresentableMessage" id="999"> </sbe:message>
 </sbe:messageSchema>

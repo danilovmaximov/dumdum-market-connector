@@ -20,7 +20,7 @@ val sbeTool = configurations.create("sbeTool")
 
 dependencies {
     implementation(ktorLibs.client.core)
-    implementation(ktorLibs.client.cio)
+    implementation(ktorLibs.client.okhttp)
     implementation(ktorLibs.client.contentNegotiation)
     implementation(ktorLibs.serialization.kotlinx.json)
     implementation(ktorLibs.server.config.yaml)
